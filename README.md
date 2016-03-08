@@ -1,2 +1,2 @@
 # asterix
-an automation framework in .Net C#
+Automation framework in .Net
