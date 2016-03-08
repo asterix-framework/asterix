@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
-using Asterix.Core.Contracts;
 
-namespace Asterix.Core.Logging
+namespace Asterix.Framework.WebUi.Logging
 {
     public class FileLogger : LoggerBase
     {

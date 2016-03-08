@@ -1,7 +1,6 @@
 ﻿using System;
-using Asterix.Core.Contracts;
 
-namespace Asterix.Core.Logging
+namespace Asterix.Framework.WebUi.Logging
 {
     public class ConsoleLogger : LoggerBase
     {

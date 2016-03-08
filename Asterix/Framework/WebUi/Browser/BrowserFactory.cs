@@ -1,6 +1,5 @@
 ﻿using System;
-using Asterix.Core;
-using Asterix.Core.Logging;
+using Asterix.Framework.WebUi.Logging;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;

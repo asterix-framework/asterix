@@ -1,8 +1,6 @@
 ﻿using System.Globalization;
-using Asterix.Core.Contracts;
-using Asterix.Core.Contracts.Logging;
 
-namespace Asterix.Core.Logging
+namespace Asterix.Framework.WebUi.Logging
 {
     public abstract class LoggerBase : ILogger
     {

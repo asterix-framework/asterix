@@ -6,5 +6,6 @@ namespace Asterix.Framework.WebUi.Elements
     {
         string Text { get; }
         IWebDriver WebDriver { get; }
+        void Click();
     }
 }

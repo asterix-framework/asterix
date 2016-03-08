@@ -13,6 +13,6 @@ namespace SampleTests.Blog.Pages
             _browser = browser;
         }
 
-        public MainPage MainPage { get {return new MainPage(_browser);} }
+        public MainPage MainPage { get { return new MainPage(_browser); } }
     }
 }

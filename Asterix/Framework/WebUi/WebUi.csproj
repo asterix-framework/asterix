@@ -60,20 +60,16 @@
     <Compile Include="Exceptions\ElementNotFoundException.cs" />
     <Compile Include="Exceptions\FrameNotFoundException.cs" />
     <Compile Include="FindBy.cs" />
+    <Compile Include="Logging\ConsoleLogger.cs" />
+    <Compile Include="Logging\DatetTimeProvider.cs" />
+    <Compile Include="Logging\FileLogger.cs" />
+    <Compile Include="Logging\IDatetTimeProvider.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\LoggerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\Core.Contracts\Core.Contracts.csproj">
-      <Project>{19698C0E-C836-4E8C-854E-030995AF8A2A}</Project>
-      <Name>Core.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\Core\Core.csproj">
-      <Project>{AA3A3448-B950-4829-B866-33CF55BB467E}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,6 @@
 ﻿using System;
-using Asterix.Core.Contracts.Logging;
 using Asterix.Framework.WebUi.Elements;
+using Asterix.Framework.WebUi.Logging;
 
 namespace Asterix.Framework.WebUi.Browser
 {

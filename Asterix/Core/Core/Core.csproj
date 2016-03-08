@@ -42,9 +42,6 @@
   <ItemGroup>
     <Compile Include="Configuration\DependencyConiguration.cs" />
     <Compile Include="DatetTimeProvider.cs" />
-    <Compile Include="Logging\ConsoleLogger.cs" />
-    <Compile Include="Logging\FileLogger.cs" />
-    <Compile Include="Logging\LoggerBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +53,9 @@
       <Project>{19698c0e-c836-4e8c-854e-030995af8a2a}</Project>
       <Name>Core.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Logging\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,5 +1,5 @@
 ﻿using System;
-using Asterix.Core.Contracts.Logging;
+using Asterix.Framework.WebUi.Logging;
 using OpenQA.Selenium;
 
 namespace Asterix.Framework.WebUi.Elements

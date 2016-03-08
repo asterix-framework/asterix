@@ -1,4 +1,4 @@
-﻿namespace Asterix.Core.Contracts.Logging
+﻿namespace Asterix.Framework.WebUi.Logging
 {
     public interface ILogger
     {

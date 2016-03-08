@@ -58,16 +58,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Contracts\Core.Contracts.csproj">
-      <Project>{19698C0E-C836-4E8C-854E-030995AF8A2A}</Project>
-      <Name>Core.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{AA3A3448-B950-4829-B866-33CF55BB467E}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Choose>

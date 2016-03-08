@@ -1,6 +1,4 @@
 ﻿using System;
-using Asterix.Core.Contracts.Logging;
-using Asterix.Core.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 

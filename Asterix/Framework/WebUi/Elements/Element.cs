@@ -1,5 +1,5 @@
 ﻿using System;
-using Asterix.Core.Contracts.Logging;
+using Asterix.Framework.WebUi.Logging;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Internal;
 
@@ -19,5 +19,9 @@ namespace Asterix.Framework.WebUi.Elements
             }
         }
 
+        public void Click()
+        {
+            WebElement.Click();
+        }
     }
 }
