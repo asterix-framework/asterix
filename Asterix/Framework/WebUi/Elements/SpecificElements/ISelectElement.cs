@@ -1,4 +1,4 @@
-﻿namespace Asterix.Framework.WebUi.Elements
+﻿namespace Asterix.Framework.WebUi.Elements.SpecificElements
 {
     public interface ISelectElement
     {

@@ -16,6 +16,8 @@ namespace SampleTests.google
 
                 google.MainPage.Navigate(Google.ServerAddress);
 
+                Assert.That(google.MainPage.Search.Element.Displayed, Is.True);
+
                 google.MainPage.Search.Type("hello");
                 google.MainPage.SearchButton.Click();
             }

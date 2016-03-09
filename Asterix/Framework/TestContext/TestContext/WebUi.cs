@@ -22,7 +22,7 @@ namespace TestContext
             {
                 if (disposing)
                 {
-                    Browser.Quit();
+                    Browser.Dispose();
                 }
 
                 // shared cleanup logic

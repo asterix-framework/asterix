@@ -1,7 +1,6 @@
 ﻿using System;
 using Asterix.Framework.WebUi.Logging;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Internal;
 
 namespace Asterix.Framework.WebUi.Elements
 {
@@ -19,6 +18,14 @@ namespace Asterix.Framework.WebUi.Elements
             }
         }
 
+        public bool Displayed
+        {
+            get
+            {
+                return WebElement.Displayed;
+            }
+        }
+        
         public void Click()
         {
             WebElement.Click();

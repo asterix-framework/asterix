@@ -2,9 +2,9 @@
 using Asterix.Framework.WebUi.Logging;
 using OpenQA.Selenium;
 
-namespace Asterix.Framework.WebUi.Elements
+namespace Asterix.Framework.WebUi.Elements.SpecificElements
 {
-    public abstract class SpecificElement : ElementBase
+    public abstract class SpecificElement : ElementBase, ISpecificElement
     {
         public IElement Element { get; set; }
 

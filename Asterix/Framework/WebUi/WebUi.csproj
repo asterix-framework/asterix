@@ -43,6 +43,10 @@
       <HintPath>..\..\packages\Selenium.WebDriver.2.52.0\lib\net40\WebDriver.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=2.52.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Selenium.Support.2.52.0\lib\net40\WebDriver.Support.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Browser\Browser.cs" />
@@ -52,11 +56,12 @@
     <Compile Include="Elements\Element.cs" />
     <Compile Include="Elements\IElement.cs" />
     <Compile Include="Elements\IElementBase.cs" />
-    <Compile Include="Elements\IInputElement.cs" />
-    <Compile Include="Elements\InputElement.cs" />
-    <Compile Include="Elements\ISelectElement.cs" />
-    <Compile Include="Elements\SelectElement.cs" />
-    <Compile Include="Elements\SpecificElement.cs" />
+    <Compile Include="Elements\SpecificElements\IInputElement.cs" />
+    <Compile Include="Elements\SpecificElements\InputElement.cs" />
+    <Compile Include="Elements\SpecificElements\ISelectElement.cs" />
+    <Compile Include="Elements\SpecificElements\ISpecificElement.cs" />
+    <Compile Include="Elements\SpecificElements\SelectElement.cs" />
+    <Compile Include="Elements\SpecificElements\SpecificElement.cs" />
     <Compile Include="Exceptions\ElementNotFoundException.cs" />
     <Compile Include="Exceptions\FrameNotFoundException.cs" />
     <Compile Include="FindBy.cs" />
@@ -66,6 +71,7 @@
     <Compile Include="Logging\IDatetTimeProvider.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\LoggerBase.cs" />
+    <Compile Include="PageObject\PageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

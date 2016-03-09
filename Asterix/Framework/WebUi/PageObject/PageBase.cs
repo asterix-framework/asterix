@@ -1,12 +1,10 @@
-﻿using Asterix.Framework.WebUi.Browser;
-
-namespace TestContext.Page
+﻿namespace Asterix.Framework.WebUi.PageObject
 {
     public class PageBase
     {
-        public Browser Browser { get; private set; }
+        public Browser.Browser Browser { get; private set; }
 
-        public PageBase(Browser browser)
+        public PageBase(Browser.Browser browser)
         {
             Browser = browser;
         }

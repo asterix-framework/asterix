@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace Asterix.Framework.WebUi.Elements
+namespace Asterix.Framework.WebUi.Elements.SpecificElements
 {
     public class InputElement : SpecificElement, IInputElement
     {

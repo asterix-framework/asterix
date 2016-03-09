@@ -7,7 +7,7 @@ namespace Asterix.Framework.WebUi.Elements
 {
     public class ElementBase : IElementBase
     {
-        public Func<IWebElement> WebElementFunc { get; }
+        public Func<IWebElement> WebElementFunc { get; private set; }
         public ILogger Logger { get; private set; }
         public IWebDriver WebDriver { get; private set; }
 
@@ -19,10 +19,9 @@ namespace Asterix.Framework.WebUi.Elements
         }
 
         public IWebElement WebElement { get { return WebElementFunc.Invoke(); } }
-        
+
         private Func<IWebElement> GetFindElementFunc(FindBy by)
         {
-
             return () => WebElementFunc.Invoke().FindElement(@by.SeleniumBy);
         }
 
@@ -40,7 +39,7 @@ namespace Asterix.Framework.WebUi.Elements
 
         public T FindElement<T>(FindBy by) where T : ElementBase, new()
         {
-            var element = new Element(WebDriver, GetFindElementFunc(by), Logger);
+            var element = FindElement(by);
 
             return (T)Activator.CreateInstance(typeof(T), element);
         }

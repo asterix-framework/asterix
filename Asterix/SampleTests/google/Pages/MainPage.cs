@@ -1,7 +1,8 @@
 ﻿using Asterix.Framework.WebUi;
 using Asterix.Framework.WebUi.Browser;
 using Asterix.Framework.WebUi.Elements;
-using TestContext.Page;
+using Asterix.Framework.WebUi.Elements.SpecificElements;
+using Asterix.Framework.WebUi.PageObject;
 
 namespace SampleTests.google.Pages
 {
