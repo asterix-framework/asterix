@@ -49,13 +49,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Browser\Browser.cs" />
+    <Compile Include="Browser\WebBrowser.cs" />
     <Compile Include="Browser\BrowserFactory.cs" />
-    <Compile Include="Browser\IBrowser.cs" />
+    <Compile Include="Browser\IWebBrowser.cs" />
     <Compile Include="Elements\ElementBase.cs" />
     <Compile Include="Elements\Element.cs" />
     <Compile Include="Elements\IElement.cs" />
     <Compile Include="Elements\IElementBase.cs" />
+    <Compile Include="Elements\Javascript.cs" />
     <Compile Include="Elements\SpecificElements\IInputElement.cs" />
     <Compile Include="Elements\SpecificElements\InputElement.cs" />
     <Compile Include="Elements\SpecificElements\ISelectElement.cs" />

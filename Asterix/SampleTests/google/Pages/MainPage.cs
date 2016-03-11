@@ -8,10 +8,14 @@ namespace SampleTests.google.Pages
 {
     public class MainPage : PageBase
     {
-        public MainPage(Browser browser) : base(browser) { }
+        public MainPage(IWebBrowser webBrowser) : base(webBrowser) { }
 
-        public IInputElement Search { get { return Browser.FindElement<InputElement>(FindBy.Id("lst-ib")); } }
+        public IInputElement Search { get { return WebBrowser.FindElement<InputElement>(FindBy.Id("lst-ib")); } }
 
-        public IElement SearchButton { get { return Browser.FindElement(FindBy.XPath("//*[@id=\"sblsbb\"]/button")); } }
+        public IElement SearchButton { get { return WebBrowser.FindElement(FindBy.XPath("//*[@id=\"sblsbb\"]/button")); } }
+
+        public IElement CalculatorResult { get { return WebBrowser.FindElement(FindBy.Id("cwos")); } }
+
+        protected override string PageUrl { get { return "/"; } }
     }
 }

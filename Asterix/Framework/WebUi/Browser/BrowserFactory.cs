@@ -20,7 +20,7 @@ namespace Asterix.Framework.WebUi.Browser
 
     public class BrowserFactory
     {
-        public static Browser Create(BrowserType browserType)
+        public static IWebBrowser Create(BrowserType browserType = BrowserType.Firefox)
         {
             IWebDriver webDriver;
             switch (browserType)
@@ -53,9 +53,9 @@ namespace Asterix.Framework.WebUi.Browser
             return Create(webDriver);
         }
 
-        private static Browser Create(IWebDriver webDriver)
+        private static IWebBrowser Create(IWebDriver webDriver)
         {
-            return new Browser(webDriver, new ConsoleLogger(new DatetTimeProvider()));
+            return new WebBrowser(webDriver, new ConsoleLogger(new DatetTimeProvider()));
         }
     }
 }

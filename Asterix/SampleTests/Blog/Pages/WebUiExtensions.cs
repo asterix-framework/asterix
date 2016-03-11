@@ -1,4 +1,5 @@
-﻿using TestContext;
+﻿using SampleTests.google.Pages;
+using TestContext;
 
 namespace SampleTests.Blog.Pages
 {
@@ -6,7 +7,12 @@ namespace SampleTests.Blog.Pages
     {
         public static ProfTestBlog ProfTestBlog(this WebUi webUi)
         {
-                return new ProfTestBlog(webUi.Browser);
+                return new ProfTestBlog(webUi.WebBrowser);
+        }
+
+        public static Google Google(this WebUi webUi)
+        {
+            return new Google(webUi.WebBrowser);
         }
     }
 }

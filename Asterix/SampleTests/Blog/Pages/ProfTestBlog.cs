@@ -1,18 +1,20 @@
-﻿using Asterix.Framework.WebUi.Browser;
+﻿using System;
+using Asterix.Framework.WebUi.Browser;
 
 namespace SampleTests.Blog.Pages
 {
     public class ProfTestBlog
     {
-        private readonly Browser _browser;
+        private readonly IWebBrowser _webBrowser;
 
-        public const string ServerAddress = "https://professionaltestingblog.wordpress.com/";
+        private const string ServerAddress = "https://professionaltestingblog.wordpress.com/";
 
-        public ProfTestBlog(Browser browser)
+        public ProfTestBlog(IWebBrowser webBrowser)
         {
-            _browser = browser;
+            _webBrowser = webBrowser;
+            _webBrowser.ServerAddress = new Uri(ServerAddress);
         }
 
-        public MainPage MainPage { get { return new MainPage(_browser); } }
+        public MainPage MainPage { get { return new MainPage(_webBrowser); } }
     }
 }

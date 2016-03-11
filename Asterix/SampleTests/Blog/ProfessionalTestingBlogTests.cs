@@ -15,7 +15,7 @@ namespace SampleTests.Blog
             {
                 ProfTestBlog profTestBlog = testContext.WebUi.ProfTestBlog();
                 
-                profTestBlog.MainPage.Navigate(ProfTestBlog.ServerAddress);
+                profTestBlog.MainPage.Navigate();
                 string pageTitle = profTestBlog.MainPage.Title;
 
                 Assert.That(pageTitle, Is.EqualTo("The Professional Testing Blog"));
@@ -26,15 +26,14 @@ namespace SampleTests.Blog
         [Ignore("Not fully implemented yet")]
         public void ProTestingBlogSearch()
         {
-            using (var browser = BrowserFactory.Create(BrowserType.Firefox))
+            using (var webBrowser = BrowserFactory.Create())
             {
-                var profTestBlog = new ProfTestBlog(browser);
+                var profTestBlog = new ProfTestBlog(webBrowser);
 
-                profTestBlog.MainPage.Navigate(ProfTestBlog.ServerAddress);
+                profTestBlog.MainPage.Navigate();
 
                 profTestBlog.MainPage.Search.Clear();
                 profTestBlog.MainPage.Search.SetValue("NUnit");
-                //todo click
 
                 var post1Title = profTestBlog.MainPage.FirstPostTitle.Text;
 

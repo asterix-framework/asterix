@@ -1,6 +1,7 @@
 ﻿using System;
 using Asterix.Framework.WebUi.Logging;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace Asterix.Framework.WebUi.Elements
 {
@@ -9,6 +10,10 @@ namespace Asterix.Framework.WebUi.Elements
         internal Element(IWebDriver webDriver, Func<IWebElement> webElement, ILogger logger): base(webDriver, logger, webElement)
         {
         }
+
+        public Actions Actions { get { return new Actions(WebDriver); } }
+
+        public Javascript Javascript { get {  return new Javascript(WebDriver, WebElement); } }
 
         public string Text
         {

@@ -5,11 +5,11 @@ namespace TestContext
 {
     public class WebUi : IDisposable
     {
-        public Browser Browser { get; set; }
+        public IWebBrowser WebBrowser { get; set; }
 
         public WebUi()
         {
-            Browser = BrowserFactory.Create(BrowserType.Firefox);
+            WebBrowser = BrowserFactory.Create();
         }
 
         #region dispose
@@ -22,7 +22,7 @@ namespace TestContext
             {
                 if (disposing)
                 {
-                    Browser.Dispose();
+                    WebBrowser.Dispose();
                 }
 
                 // shared cleanup logic

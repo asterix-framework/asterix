@@ -6,14 +6,16 @@ using OpenQA.Selenium;
 
 namespace Asterix.Framework.WebUi.Browser
 {
-    public class Browser : ElementBase, IBrowser
+    public class WebBrowser : ElementBase, IWebBrowser
     {
-        public Browser(IWebDriver webDriver, ILogger logger) : base(webDriver, logger, () => webDriver.FindElement(By.XPath("/*"))) { }
+        public WebBrowser(IWebDriver webDriver, ILogger logger) : base(webDriver, logger, () => webDriver.FindElement(By.XPath("/*"))) { }
         
         public void Navigate(string url)
         {
             WebDriver.Navigate().GoToUrl(url);
         }
+
+        public Uri ServerAddress { get; set; }
 
         public void Navigate(Uri uri)
         {
@@ -73,7 +75,7 @@ namespace Asterix.Framework.WebUi.Browser
             }
         }
 
-        ~Browser()
+        ~WebBrowser()
         {
             Dispose(false);
         }

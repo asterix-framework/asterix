@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace Asterix.Framework.WebUi.Elements
 {
@@ -7,6 +8,8 @@ namespace Asterix.Framework.WebUi.Elements
         string Text { get; }
         bool Displayed { get; }
         IWebDriver WebDriver { get; }
+        Actions Actions { get; }
+        Javascript Javascript { get; }
         void Click();
     }
 }

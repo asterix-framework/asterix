@@ -1,23 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Asterix.Framework.WebUi.Browser;
 
 namespace SampleTests.google.Pages
 {
     public class Google
     {
-        private readonly Browser _browser;
+        private readonly IWebBrowser _webBrowser;
 
-        public const string ServerAddress = "https://google.com";
+        private const string ServerAddress = "https://google.com";
 
-        public Google(Browser browser)
+        public Google(IWebBrowser webBrowser)
         {
-            _browser = browser;
+            _webBrowser = webBrowser;
+            _webBrowser.ServerAddress = new Uri(ServerAddress);
         }
 
-        public MainPage MainPage { get { return new MainPage(_browser); } }
+        public MainPage MainPage { get { return new MainPage(_webBrowser); } }
     }
 }
