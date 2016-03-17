@@ -6,13 +6,17 @@ namespace Asterix.Framework.WebUi.Browser
 {
     public interface IWebBrowser: IElementBase, IDisposable
     {
+        bool IsClosed { get; }
         string Html { get; }
         Uri ServerAddress { get; set; }
+
         void Navigate(string url);
         void Navigate(Uri uri);
         void Refresh();
         void SwitchToFrame(string frameName);
         void SwitchToMain();
         void Quit();
+
+        void Close();
     }
 }

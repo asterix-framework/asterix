@@ -1,4 +1,5 @@
-﻿using Asterix.Framework.WebUi.Browser;
+﻿using System.Threading;
+using Asterix.Framework.WebUi.Browser;
 using NUnit.Framework;
 using SampleTests.google.Pages;
 
@@ -26,6 +27,17 @@ namespace SampleTests.google
 
                 Assert.That(google.MainPage.CalculatorResult.Text, Is.EqualTo("2"));
             }
+        }
+
+        [Test]
+        public void NavigateToGoogleSiteWithSingletonBrowserTwoTimes()
+        {
+            WebBrowser.Instance.Navigate("http://www.google.com");
+            Thread.Sleep(2000);
+            WebBrowser.Instance.Quit();
+            WebBrowser.Instance.Navigate("http://www.google.com");
+            Thread.Sleep(2000);
+            WebBrowser.Instance.Quit();
         }
     }
 }
