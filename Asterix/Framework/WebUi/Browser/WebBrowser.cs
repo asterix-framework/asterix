@@ -8,8 +8,25 @@ namespace Asterix.Framework.WebUi.Browser
 {
     public class WebBrowser : ElementBase, IWebBrowser
     {
-        public WebBrowser(IWebDriver webDriver, ILogger logger) : base(webDriver, logger, () => webDriver.FindElement(By.XPath("/*"))) { }
-        
+        private static IWebBrowser _browserInstance;
+        public bool IsClosed { get; private set; }
+
+        public WebBrowser(IWebDriver webDriver, ILogger logger) : base(webDriver, logger, () => webDriver.FindElement(By.XPath("/*")))
+        { }
+
+        public static IWebBrowser Instance
+        {
+            get
+            {
+                if (_browserInstance == null || _browserInstance.IsClosed)
+                {
+                    _browserInstance = BrowserFactory.Create();
+                }
+
+                return _browserInstance;
+            }
+        }
+
         public void Navigate(string url)
         {
             WebDriver.Navigate().GoToUrl(url);
@@ -55,7 +72,16 @@ namespace Asterix.Framework.WebUi.Browser
         public void Quit()
         {
             WebDriver.Quit();
+            IsClosed = true;
         }
+
+        public void Close()
+        {
+            WebDriver.Close();
+            IsClosed = true;
+        }
+
+
 
         #region dispose
 
@@ -85,6 +111,8 @@ namespace Asterix.Framework.WebUi.Browser
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
+
 
         #endregion
     }
