@@ -35,5 +35,10 @@ namespace Asterix.Framework.WebUi.Elements
         {
             WebElement.Click();
         }
+
+        public string GetAttribute(string attributeName)
+        {
+            return WebElement.GetAttribute(attributeName);
+        }
     }
 }
