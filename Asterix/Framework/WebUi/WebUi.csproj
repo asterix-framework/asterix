@@ -60,8 +60,11 @@
     <Compile Include="Elements\SpecificElements\IInputElement.cs" />
     <Compile Include="Elements\SpecificElements\InputElement.cs" />
     <Compile Include="Elements\SpecificElements\ISelectElement.cs" />
+    <Compile Include="Elements\SpecificElements\ISelectOption.cs" />
     <Compile Include="Elements\SpecificElements\ISpecificElement.cs" />
     <Compile Include="Elements\SpecificElements\SelectElement.cs" />
+    <Compile Include="Elements\SpecificElements\SelectElementJavascript.cs" />
+    <Compile Include="Elements\SpecificElements\SelectOption.cs" />
     <Compile Include="Elements\SpecificElements\SpecificElement.cs" />
     <Compile Include="Exceptions\ElementNotFoundException.cs" />
     <Compile Include="Exceptions\FrameNotFoundException.cs" />

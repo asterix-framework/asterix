@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace Asterix.Framework.WebUi.Elements
 {
-    public class ElementBase : IElementBase
+    public abstract class ElementBase : IElementBase
     {
         public Func<IWebElement> WebElementFunc { get; private set; }
         public ILogger Logger { get; private set; }
@@ -37,7 +37,7 @@ namespace Asterix.Framework.WebUi.Elements
             }
         }
 
-        public T FindElement<T>(FindBy by) where T : ElementBase, new()
+        public T FindElement<T>(FindBy by) where T : IElementBase, new()
         {
             var element = FindElement(by);
 

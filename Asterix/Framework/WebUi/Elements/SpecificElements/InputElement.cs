@@ -7,7 +7,7 @@ namespace Asterix.Framework.WebUi.Elements.SpecificElements
         public InputElement() : base(null, null, null)
         { }
 
-        public InputElement(Element element) : base(element.WebDriver, element.Logger, element.WebElementFunc)
+        public InputElement(IElement element) : base(element.WebDriver, element.Logger, element.WebElementFunc)
         {
             Element = element;
         }
