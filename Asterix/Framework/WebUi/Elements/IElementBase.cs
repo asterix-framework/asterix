@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Asterix.Framework.WebUi.Logging;
 using OpenQA.Selenium;
 

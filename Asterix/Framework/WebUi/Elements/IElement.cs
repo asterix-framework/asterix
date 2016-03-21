@@ -11,5 +11,6 @@ namespace Asterix.Framework.WebUi.Elements
         Javascript Javascript { get; }
         void Click();
         string GetAttribute(string attributeName);
+        void SetAttribute(string key, string value);
     }
 }

@@ -19,11 +19,26 @@ namespace SampleTests.SampleControlSite.Pages
             return new DropDownPage(WebBrowser);
         }
 
+        public CheckBoxPage ClickOnCheckBox()
+        {
+            CheckBox.Click();
+            return new CheckBoxPage(WebBrowser);
+        }
+
         public IElement DrowpDown
         {
             get
             {
                 return WebBrowser.FindElement(FindBy.XPath("//*[@id=\"content\"]/ul/li[9]/a"));
+            } 
+            
+        }
+
+        public IElement CheckBox
+        {
+            get
+            {
+                return  WebBrowser.FindElement(FindBy.XPath("//*[@id=\"content\"]/ul/li[5]/a"));
             }
         }
     }

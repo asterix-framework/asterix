@@ -19,5 +19,6 @@ namespace SampleTests.SampleControlSite.Pages
 
         public DropDownPage DropDownPage { get { return new DropDownPage(_webBrowser); } }
 
-    }
+        public CheckBoxPage CheckBoxPage { get { return new CheckBoxPage(_webBrowser); } }
+}
 }

@@ -40,5 +40,10 @@ namespace Asterix.Framework.WebUi.Elements
         {
             return WebElement.GetAttribute(attributeName);
         }
+
+        public void SetAttribute(string key, string value)
+        {
+            Javascript.SetAttribute(key, value); 
+        }
     }
 }
