@@ -10,13 +10,14 @@ namespace Asterix.Framework.WebUi.Browser
         string Html { get; }
         Uri ServerAddress { get; set; }
 
+        void ExecuteJavaScript(string code, params object[] args);
+        void ExecuteJavaScript(string code);
         void Navigate(string url);
         void Navigate(Uri uri);
         void Refresh();
         void SwitchToFrame(string frameName);
         void SwitchToMain();
         void Quit();
-
         void Close();
     }
 }

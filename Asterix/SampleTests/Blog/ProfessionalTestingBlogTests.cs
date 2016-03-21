@@ -6,6 +6,7 @@ using SampleTests.Blog.Pages;
 namespace SampleTests.Blog
 {
     [TestFixture]
+    [Ignore("")]
     public class ProfessionalTestingBlogTests
     {
         [Test]

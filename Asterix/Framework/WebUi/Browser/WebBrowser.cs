@@ -11,8 +11,10 @@ namespace Asterix.Framework.WebUi.Browser
         private static IWebBrowser _browserInstance;
         public bool IsClosed { get; private set; }
 
-        public WebBrowser(IWebDriver webDriver, ILogger logger) : base(webDriver, logger, () => webDriver.FindElement(By.XPath("/*")))
-        { }
+        public WebBrowser(IWebDriver webDriver, ILogger logger)
+            : base(webDriver, logger, () => webDriver.FindElement(By.XPath("/*")))
+        {
+        }
 
         public static IWebBrowser Instance
         {
@@ -25,6 +27,16 @@ namespace Asterix.Framework.WebUi.Browser
 
                 return _browserInstance;
             }
+        }
+
+        public void ExecuteJavaScript(string code)
+        {
+            ExecuteJavaScript(code, null);
+        }
+
+        public void ExecuteJavaScript(string code, params object[] args)
+        {
+            ((IJavaScriptExecutor) WebDriver).ExecuteScript(code, args);
         }
 
         public void Navigate(string url)
