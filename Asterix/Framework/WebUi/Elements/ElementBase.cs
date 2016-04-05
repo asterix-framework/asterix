@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Asterix.Framework.WebUi.Exceptions;
 using Asterix.Framework.WebUi.Logging;
 using OpenQA.Selenium;
@@ -23,6 +24,33 @@ namespace Asterix.Framework.WebUi.Elements
         private Func<IWebElement> GetFindElementFunc(FindBy by)
         {
             return () => WebElementFunc.Invoke().FindElement(@by.SeleniumBy);
+        }
+
+        public List<IElement> FindElements(FindBy by)
+        {
+            var elements = new List<IElement>();
+            var webelements = WebElement.FindElements(by.SeleniumBy);
+
+            foreach (IWebElement webElement in webelements)
+            {
+                elements.Add(new Element(WebDriver, () => webElement, Logger));
+            }
+
+            return elements;
+        }
+
+        public List<T> FindElements<T>(FindBy by) where T : IElementBase, new()
+        {
+            var elements = new List<T>();
+            var webelements = WebElement.FindElements(by.SeleniumBy);
+
+            foreach (IWebElement webElement in webelements)
+            {
+                var element = new Element(WebDriver, () => webElement, Logger);
+                elements.Add((T)Activator.CreateInstance(typeof(T), element));
+            }
+
+            return elements;
         }
 
         public IElement FindElement(FindBy by)

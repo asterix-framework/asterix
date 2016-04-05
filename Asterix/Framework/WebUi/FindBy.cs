@@ -30,5 +30,10 @@ namespace Asterix.Framework.WebUi
         {
             return new FindBy() { SeleniumBy = OpenQA.Selenium.By.TagName(value) };
         }
+
+        public static FindBy Text(string value)
+        {
+            return new FindBy() { SeleniumBy = OpenQA.Selenium.By.XPath(($"//*[contains(text(), '{value}')]")) };
+        }
     }
 }

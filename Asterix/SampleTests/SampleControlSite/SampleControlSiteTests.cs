@@ -1,5 +1,7 @@
 ﻿using System.Threading;
+using Asterix.Framework.WebUi;
 using Asterix.Framework.WebUi.Browser;
+using Asterix.Framework.WebUi.Elements.SpecificElements;
 using NUnit.Framework;
 
 namespace SampleTests.SampleControlSite
@@ -31,6 +33,20 @@ namespace SampleTests.SampleControlSite
             checkBoxPage.SecondRadionButtonElement.Element.Click();
             Assert.That(checkBoxPage.FirstRadionButtonElement.Checked, Is.False);
             checkBoxPage.SecondRadionButtonElement.Element.Click();
+        }
+
+        [Test]
+        public void FindElementsAndFindElement()
+        {
+            var webBrowser = BrowserFactory.Create();
+            var site = new Pages.SampleControlSite(webBrowser);
+            site.MainPage.Navigate();
+            var checkBoxPage = site.MainPage.ClickOnCheckBox();
+
+            var checkbox21 = checkBoxPage.Checkbox2;
+            var checkbox22 = checkBoxPage.CheckboxDiv.FindElements<CheckBoxElement>(FindBy.TagName("input"))[1];
+            Assert.That(checkbox21.Checked, Is.EqualTo(true));
+            Assert.That(checkbox22.Checked, Is.EqualTo(true));
         }
 
         [Test]
