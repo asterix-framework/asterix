@@ -9,6 +9,12 @@ namespace SampleTests.SampleControlSite.Pages
 
         private const string ServerAddress = "http://the-internet.herokuapp.com/";
 
+        public SampleControlSite(IWebBrowser webBrowser, string serverAddress)
+        {
+            _webBrowser = webBrowser;
+            _webBrowser.ServerAddress = new Uri(serverAddress);
+        }
+
         public SampleControlSite(IWebBrowser webBrowser)
         {
             _webBrowser = webBrowser;

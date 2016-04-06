@@ -1,8 +1,10 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using Asterix.Framework.WebUi;
 using Asterix.Framework.WebUi.Browser;
 using Asterix.Framework.WebUi.Elements.SpecificElements;
 using NUnit.Framework;
+using TestContext.Configuration;
 
 namespace SampleTests.SampleControlSite
 {
@@ -94,6 +96,21 @@ namespace SampleTests.SampleControlSite
                 dropDownPage.DropDownElement.Javascript.SelectByText("Option 1");
                 Assert.That(dropDownPage.DropDownElement.SelectedOption.Element.Text, Is.EqualTo("Option 1"));
                 Assert.That(dropDownPage.DropDownElement.SelectedOption.Value, Is.EqualTo("1"));
+            }
+        }
+
+        [Test]
+        public void UseEnvironmentConfiguration()
+        {
+            Environment.SetEnvironmentVariable("BrowserType", "Firefox", EnvironmentVariableTarget.Process);
+            Environment.SetEnvironmentVariable("ServerAddress", "http://the-internet.herokuapp.com/", EnvironmentVariableTarget.Process);
+
+            IConfiguration configuration = new EnvironmentConfiguration();
+
+            using (var webBrowser = BrowserFactory.Create(configuration.BrowserType))
+            {
+                var site = new Pages.SampleControlSite(webBrowser, configuration.ServerAddress);
+                site.MainPage.Navigate();
             }
         }
     }
