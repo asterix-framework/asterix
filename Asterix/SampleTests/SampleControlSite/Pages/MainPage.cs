@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using Asterix.Framework.WebUi;
 using Asterix.Framework.WebUi.Browser;
 using Asterix.Framework.WebUi.Elements;

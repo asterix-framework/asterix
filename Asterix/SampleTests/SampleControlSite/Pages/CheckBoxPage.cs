@@ -21,7 +21,7 @@ namespace SampleTests.SampleControlSite.Pages
         {
         }
 
-        protected override string PageUrl => "http://the-internet.herokuapp.com/checkboxes";
+        protected override string PageUrl => "checkboxes";
 
         public ICheckBoxElement FirstCheckBoxElement
         {
@@ -54,6 +54,23 @@ namespace SampleTests.SampleControlSite.Pages
             }
         }
 
+        public IElement CheckboxDiv
+        {
+            get
+            {
+                return WebBrowser.FindElements(FindBy.Class("row"))[1];
+            }
+        }
+
+        public IElement CheckboxForm
+        {
+            get { return CheckboxDiv.FindElement(FindBy.Id("checkboxes")); }
+        }
+
+        public ICheckBoxElement Checkbox2
+        {
+            get { return CheckboxForm.FindElements<CheckBoxElement>(FindBy.TagName("input"))[1]; }
+        }
 
         public CheckBoxPage AddRadioButtonsToThePage()
         {
