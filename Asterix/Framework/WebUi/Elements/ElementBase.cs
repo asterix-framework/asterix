@@ -29,12 +29,13 @@ namespace Asterix.Framework.WebUi.Elements
         public List<IElement> FindElements(FindBy by)
         {
             var elements = new List<IElement>();
-            var webelements = WebElement.FindElements(by.SeleniumBy);
-
-            foreach (IWebElement webElement in webelements)
+            var elementsCount = ElementsCount(@by);
+            for (var i = 0; i < elementsCount; i++)
             {
-                elements.Add(new Element(WebDriver, () => webElement, Logger));
+                int index = i;
+                elements.Add(CreateElementByIndex(@by, index));
             }
+
 
             return elements;
         }
@@ -42,11 +43,11 @@ namespace Asterix.Framework.WebUi.Elements
         public List<T> FindElements<T>(FindBy by) where T : IElementBase, new()
         {
             var elements = new List<T>();
-            var webelements = WebElement.FindElements(by.SeleniumBy);
-
-            foreach (IWebElement webElement in webelements)
+            var elementsCount = ElementsCount(@by);
+            for (var i = 0; i < elementsCount; i++)
             {
-                var element = new Element(WebDriver, () => webElement, Logger);
+                int index = i;
+                var element = CreateElementByIndex(@by, index);
                 elements.Add((T)Activator.CreateInstance(typeof(T), element));
             }
 
@@ -70,6 +71,17 @@ namespace Asterix.Framework.WebUi.Elements
             var element = FindElement(by);
 
             return (T)Activator.CreateInstance(typeof(T), element);
+        }
+
+        private int ElementsCount(FindBy by)
+        {
+            int elementsCount = WebElement.FindElements(by.SeleniumBy).Count;
+            return elementsCount;
+        }
+
+        private Element CreateElementByIndex(FindBy @by, int index)
+        {
+            return new Element(WebDriver, () => WebElement.FindElements(@by.SeleniumBy)[index], Logger);
         }
     }
 }
