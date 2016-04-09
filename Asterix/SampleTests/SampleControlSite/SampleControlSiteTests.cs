@@ -49,6 +49,11 @@ namespace SampleTests.SampleControlSite
             var checkbox22 = checkBoxPage.CheckboxDiv.FindElements<CheckBoxElement>(FindBy.TagName("input"))[1];
             Assert.That(checkbox21.Checked, Is.EqualTo(true));
             Assert.That(checkbox22.Checked, Is.EqualTo(true));
+            checkbox21.UnCheck();
+            Assert.That(checkbox22.Checked, Is.EqualTo(false));
+
+            Thread.Sleep(2000);
+            webBrowser.Close();
         }
 
         [Test]
