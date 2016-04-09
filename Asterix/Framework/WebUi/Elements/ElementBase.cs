@@ -29,7 +29,7 @@ namespace Asterix.Framework.WebUi.Elements
         public List<IElement> FindElements(FindBy by)
         {
             var elements = new List<IElement>();
-            var elementsCount = ElementsCount(@by);
+            var elementsCount = GetElementsCount(@by);
             for (var i = 0; i < elementsCount; i++)
             {
                 int index = i;
@@ -43,7 +43,7 @@ namespace Asterix.Framework.WebUi.Elements
         public List<T> FindElements<T>(FindBy by) where T : IElementBase, new()
         {
             var elements = new List<T>();
-            var elementsCount = ElementsCount(@by);
+            var elementsCount = GetElementsCount(@by);
             for (var i = 0; i < elementsCount; i++)
             {
                 int index = i;
@@ -72,7 +72,7 @@ namespace Asterix.Framework.WebUi.Elements
             return (T)Activator.CreateInstance(typeof(T), element);
         }
 
-        private int ElementsCount(FindBy by)
+        private int GetElementsCount(FindBy by)
         {
             return WebElement.FindElements(by.SeleniumBy).Count;
         }
