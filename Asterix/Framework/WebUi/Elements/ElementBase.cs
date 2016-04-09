@@ -69,14 +69,12 @@ namespace Asterix.Framework.WebUi.Elements
         public T FindElement<T>(FindBy by) where T : IElementBase, new()
         {
             var element = FindElement(by);
-
             return (T)Activator.CreateInstance(typeof(T), element);
         }
 
         private int ElementsCount(FindBy by)
         {
-            int elementsCount = WebElement.FindElements(by.SeleniumBy).Count;
-            return elementsCount;
+            return WebElement.FindElements(by.SeleniumBy).Count;
         }
 
         private Element CreateElementByIndex(FindBy @by, int index)
