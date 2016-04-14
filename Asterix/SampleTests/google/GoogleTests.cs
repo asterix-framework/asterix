@@ -9,7 +9,7 @@ namespace SampleTests.google
     public class GoogleTests
     {
         [Test]
-        public void SearchFor1Plus1()
+        public void SearchFor1Plus1WithSimpleClick()
         {
             using (var webBrowser = BrowserFactory.Create())
             {
@@ -22,13 +22,11 @@ namespace SampleTests.google
                 google.MainPage.Search.Type("1+1");
 
                 google.MainPage.SearchButton.Click();
-                google.MainPage.SearchButton.Actions.Click();
-                google.MainPage.SearchButton.Javascript.Click();
 
                 Assert.That(google.MainPage.CalculatorResult.Text, Is.EqualTo("2"));
             }
         }
-
+        
         [Test]
         public void NavigateToGoogleSiteWithSingletonBrowserTwoTimes()
         {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Asterix.Framework.WebUi.Logging;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
+
 
 namespace Asterix.Framework.WebUi.Elements
 {
@@ -11,7 +11,7 @@ namespace Asterix.Framework.WebUi.Elements
         {
         }
 
-        public Actions Actions { get { return new Actions(WebDriver); } }
+        public Actions Actions { get { return new Actions(WebDriver, WebElement); } }
 
         public Javascript Javascript { get {  return new Javascript(WebDriver, WebElement); } }
 

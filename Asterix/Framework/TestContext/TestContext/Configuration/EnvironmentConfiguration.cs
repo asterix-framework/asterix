@@ -17,6 +17,7 @@ namespace TestContext.Configuration
                     throw new KeyNotFoundException("Environmentkey: BrowserType was not found.");
                 }
 
+                //todo ha nem tudja parse-olni listázza ki az összeset
                 return (BrowserType)Enum.Parse(typeof (BrowserType), browserType);
             }
         }

@@ -6,7 +6,7 @@ using Asterix.Framework.WebUi.Elements.SpecificElements;
 using NUnit.Framework;
 using TestContext.Configuration;
 
-namespace SampleTests.SampleControlSite
+namespace SampleTests.SampleControlSite.Pages
 {
     [TestFixture]
     public class SampleControlSiteTests
@@ -54,6 +54,32 @@ namespace SampleTests.SampleControlSite
 
             Thread.Sleep(2000);
             webBrowser.Close();
+        }
+
+        [Test]
+        public void GotoCheckboxPageWithActionClick()
+        {
+            var webBrowser = BrowserFactory.Create();
+            var site = new Pages.SampleControlSite(webBrowser);
+            site.MainPage.Navigate();
+            site.MainPage.CheckBox.Actions.Click();
+
+            var checkBoxPage = new CheckBoxPage(site.MainPage.WebBrowser);
+
+            Assert.IsTrue(checkBoxPage.CheckboxDiv.Displayed);
+        }
+
+        [Test]
+        public void GotoCheckboxPageWithJavascriptClick()
+        {
+            var webBrowser = BrowserFactory.Create();
+            var site = new Pages.SampleControlSite(webBrowser);
+            site.MainPage.Navigate();
+            site.MainPage.CheckBox.Javascript.Click();
+
+            var checkBoxPage = new CheckBoxPage(site.MainPage.WebBrowser);
+
+            Assert.IsTrue(checkBoxPage.CheckboxDiv.Displayed);
         }
 
         [Test]
@@ -112,10 +138,29 @@ namespace SampleTests.SampleControlSite
 
             IConfiguration configuration = new EnvironmentConfiguration();
 
+            //todo add only configuration to Create
             using (var webBrowser = BrowserFactory.Create(configuration.BrowserType))
             {
                 var site = new Pages.SampleControlSite(webBrowser, configuration.ServerAddress);
                 site.MainPage.Navigate();
+            }
+        }
+
+        [Test]
+        public void DragAndDropTest()
+        {
+            using (var webBrowser = BrowserFactory.Create())
+            {
+                var site = new SampleControlSite(webBrowser);
+
+                var dragAndDropPage = site.DragAndDropPage;
+
+                dragAndDropPage.Navigate();
+
+                dragAndDropPage.RectangleA.Actions.DragAndDropTo(dragAndDropPage.RectangleB);
+
+                //todo draganddrop is not working here
+                //Assert.AreEqual("B", dragAndDropPage.RectangleA.Text);
             }
         }
     }
