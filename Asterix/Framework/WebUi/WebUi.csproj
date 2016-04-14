@@ -52,6 +52,7 @@
     <Compile Include="Browser\WebBrowser.cs" />
     <Compile Include="Browser\BrowserFactory.cs" />
     <Compile Include="Browser\IWebBrowser.cs" />
+    <Compile Include="Elements\Actions.cs" />
     <Compile Include="Elements\SpecificElements\CheckBoxElement.cs" />
     <Compile Include="Elements\ElementBase.cs" />
     <Compile Include="Elements\Element.cs" />
