@@ -4,8 +4,8 @@ namespace Asterix.Framework.WebUi.Elements.SpecificElements
 {
     public interface ITableRow
     {
-        IList<TableData>  Columns { get; }
+        IEnumerable<TableData>  Columns { get; }
 
-        IList<TableData> HeaderColumns { get; }
+        IEnumerable<TableData> HeaderColumns { get; }
     }
 }
