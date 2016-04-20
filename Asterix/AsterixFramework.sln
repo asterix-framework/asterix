@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SampleTests", "SampleTests", "{91DE5A77-1E98-4433-BBAE-EEDBE1149A42}"
 EndProject
@@ -16,6 +16,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestContext", "TestContext", "{E971AECC-33AE-4D2C-A951-916DA9BF481C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestContext", "Framework\TestContext\TestContext\TestContext.csproj", "{FBCCF0C1-7946-43BE-9AB9-79C96CD7E3A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{A0E2F47B-DF27-4C26-ADCA-D51411BBDA3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D8B08707-FAE8-4E40-80BE-302C58C9CBBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +39,10 @@ Global
 		{FBCCF0C1-7946-43BE-9AB9-79C96CD7E3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBCCF0C1-7946-43BE-9AB9-79C96CD7E3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBCCF0C1-7946-43BE-9AB9-79C96CD7E3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8B08707-FAE8-4E40-80BE-302C58C9CBBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B08707-FAE8-4E40-80BE-302C58C9CBBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B08707-FAE8-4E40-80BE-302C58C9CBBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B08707-FAE8-4E40-80BE-302C58C9CBBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,5 +53,7 @@ Global
 		{FC2A77E1-7733-427B-9E28-09C8108EEC85} = {6D437F99-C6A3-4B47-AD85-69272A0B7694}
 		{E971AECC-33AE-4D2C-A951-916DA9BF481C} = {3F79A795-4AF1-42C8-A9E2-27A7A35D48CE}
 		{FBCCF0C1-7946-43BE-9AB9-79C96CD7E3A4} = {E971AECC-33AE-4D2C-A951-916DA9BF481C}
+		{A0E2F47B-DF27-4C26-ADCA-D51411BBDA3C} = {3F79A795-4AF1-42C8-A9E2-27A7A35D48CE}
+		{D8B08707-FAE8-4E40-80BE-302C58C9CBBE} = {A0E2F47B-DF27-4C26-ADCA-D51411BBDA3C}
 	EndGlobalSection
 EndGlobal
