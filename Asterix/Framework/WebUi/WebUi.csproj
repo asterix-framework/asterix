@@ -68,11 +68,17 @@
     <Compile Include="Elements\SpecificElements\ISelectElement.cs" />
     <Compile Include="Elements\SpecificElements\ISelectOption.cs" />
     <Compile Include="Elements\SpecificElements\ISpecificElement.cs" />
+    <Compile Include="Elements\SpecificElements\ITable.cs" />
+    <Compile Include="Elements\SpecificElements\ITableData.cs" />
+    <Compile Include="Elements\SpecificElements\ITableRow.cs" />
     <Compile Include="Elements\SpecificElements\RadionButtonElement.cs" />
     <Compile Include="Elements\SpecificElements\SelectElement.cs" />
     <Compile Include="Elements\SpecificElements\SelectElementJavascript.cs" />
     <Compile Include="Elements\SpecificElements\SelectOption.cs" />
     <Compile Include="Elements\SpecificElements\SpecificElement.cs" />
+    <Compile Include="Elements\SpecificElements\Table.cs" />
+    <Compile Include="Elements\SpecificElements\TableData.cs" />
+    <Compile Include="Elements\SpecificElements\TableRow.cs" />
     <Compile Include="Exceptions\ElementNotFoundException.cs" />
     <Compile Include="Exceptions\FrameNotFoundException.cs" />
     <Compile Include="FindBy.cs" />

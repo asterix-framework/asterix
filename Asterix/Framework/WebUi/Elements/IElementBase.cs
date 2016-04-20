@@ -13,7 +13,7 @@ namespace Asterix.Framework.WebUi.Elements
         IWebDriver WebDriver { get; }
         IElement FindElement(FindBy by);
         T FindElement<T>(FindBy by) where T : IElementBase, new();
-        List<IElement> FindElements(FindBy by);
-        List<T> FindElements<T>(FindBy by) where T : IElementBase, new();
+        IList<IElement> FindElements(FindBy by);
+        IList<T> FindElements<T>(FindBy by) where T : IElementBase, new();
     }
 }

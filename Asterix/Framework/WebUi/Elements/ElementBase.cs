@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Asterix.Framework.WebUi.Exceptions;
 using Asterix.Framework.WebUi.Logging;
@@ -26,7 +27,7 @@ namespace Asterix.Framework.WebUi.Elements
             return () => WebElementFunc.Invoke().FindElement(@by.SeleniumBy);
         }
 
-        public List<IElement> FindElements(FindBy by)
+        public IList<IElement> FindElements(FindBy by)
         {
             var elements = new List<IElement>();
             var elementsCount = GetElementsCount(@by);
@@ -40,7 +41,7 @@ namespace Asterix.Framework.WebUi.Elements
             return elements;
         }
 
-        public List<T> FindElements<T>(FindBy by) where T : IElementBase, new()
+        public IList<T> FindElements<T>(FindBy by) where T : IElementBase, new()
         {
             var elements = new List<T>();
             var elementsCount = GetElementsCount(@by);
@@ -77,7 +78,7 @@ namespace Asterix.Framework.WebUi.Elements
             return WebElement.FindElements(by.SeleniumBy).Count;
         }
 
-        private Element CreateElementByIndex(FindBy @by, int index)
+        private IElement CreateElementByIndex(FindBy @by, int index)
         {
             return new Element(WebDriver, () => WebElement.FindElements(@by.SeleniumBy)[index], Logger);
         }
