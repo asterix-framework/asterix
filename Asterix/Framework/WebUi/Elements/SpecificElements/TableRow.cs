@@ -16,12 +16,12 @@ namespace Asterix.Framework.WebUi.Elements.SpecificElements
         {
         }
 
-        public IEnumerable<TableData> Columns
+        public IList<TableData> Columns
         {
             get { return FindElements<TableData>(FindBy.Name("td")); }
         }
 
-        public IEnumerable<TableData> HeaderColumns
+        public IList<TableData> HeaderColumns
         {
             get { return FindElements<TableData>(FindBy.Name("th")); }
         }
