@@ -26,8 +26,10 @@ namespace Asterix.Framework.WebUi.Elements
             return () => WebElementFunc.Invoke().FindElement(@by.SeleniumBy);
         }
 
-        public List<IElement> FindElements(FindBy by)
+        public List<IElement> FindElements(FindBy by, bool onlyImmediateDescendants = false)
         {
+            by.SetSearchDepth(onlyImmediateDescendants);
+
             var elements = new List<IElement>();
             var elementsCount = GetElementsCount(@by);
             for (var i = 0; i < elementsCount; i++)
@@ -40,8 +42,10 @@ namespace Asterix.Framework.WebUi.Elements
             return elements;
         }
 
-        public List<T> FindElements<T>(FindBy by) where T : IElementBase, new()
+        public List<T> FindElements<T>(FindBy by, bool onlyImmediateDescendants = false) where T : IElementBase, new()
         {
+            by.SetSearchDepth(onlyImmediateDescendants);
+
             var elements = new List<T>();
             var elementsCount = GetElementsCount(@by);
             for (var i = 0; i < elementsCount; i++)
