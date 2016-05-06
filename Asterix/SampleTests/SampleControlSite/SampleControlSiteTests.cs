@@ -4,9 +4,10 @@ using Asterix.Framework.WebUi;
 using Asterix.Framework.WebUi.Browser;
 using Asterix.Framework.WebUi.Elements.SpecificElements;
 using NUnit.Framework;
+using SampleTests.SampleControlSite.Pages;
 using TestContext.Configuration;
 
-namespace SampleTests.SampleControlSite.Pages
+namespace SampleTests.SampleControlSite
 {
     [TestFixture]
     public class SampleControlSiteTests
@@ -14,72 +15,79 @@ namespace SampleTests.SampleControlSite.Pages
         [Test]
         public void CheckBoxTest()
         {
-            var webBrowser = BrowserFactory.Create();
-            var site = new Pages.SampleControlSite(webBrowser);
-            site.MainPage.Navigate();
-            var checkBoxPage = site.MainPage.ClickOnCheckBox();
-            checkBoxPage.FirstCheckBoxElement.Check();
-            Thread.Sleep(3000);
-            Assert.That(checkBoxPage.FirstCheckBoxElement.Checked, Is.True);
-            checkBoxPage.FirstCheckBoxElement.UnCheck();
-            Assert.That(checkBoxPage.FirstCheckBoxElement.Checked, Is.False);
-            Thread.Sleep(3000);
-            checkBoxPage.SecondCheckBoxElement.UnCheck();
-            Assert.That(checkBoxPage.FirstCheckBoxElement.Checked, Is.False);
-            Thread.Sleep(3000);
-            checkBoxPage.AddRadioButtonsToThePage();
-            Thread.Sleep(3000);
-            checkBoxPage.FirstRadionButtonElement.Element.Click();
-            Assert.That(checkBoxPage.FirstRadionButtonElement.Checked, Is.True);
-            Thread.Sleep(3000);
-            checkBoxPage.SecondRadionButtonElement.Element.Click();
-            Assert.That(checkBoxPage.FirstRadionButtonElement.Checked, Is.False);
-            checkBoxPage.SecondRadionButtonElement.Element.Click();
+            using (var webBrowser = BrowserFactory.Create())
+            {
+                var site = new Pages.SampleControlSite(webBrowser);
+                site.MainPage.Navigate();
+                var checkBoxPage = site.MainPage.ClickOnCheckBox();
+                checkBoxPage.FirstCheckBoxElement.Check();
+                Thread.Sleep(3000);
+                Assert.That(checkBoxPage.FirstCheckBoxElement.Checked, Is.True);
+                checkBoxPage.FirstCheckBoxElement.UnCheck();
+                Assert.That(checkBoxPage.FirstCheckBoxElement.Checked, Is.False);
+                Thread.Sleep(3000);
+                checkBoxPage.SecondCheckBoxElement.UnCheck();
+                Assert.That(checkBoxPage.FirstCheckBoxElement.Checked, Is.False);
+                Thread.Sleep(3000);
+                checkBoxPage.AddRadioButtonsToThePage();
+                Thread.Sleep(3000);
+                checkBoxPage.FirstRadionButtonElement.Element.Click();
+                Assert.That(checkBoxPage.FirstRadionButtonElement.Checked, Is.True);
+                Thread.Sleep(3000);
+                checkBoxPage.SecondRadionButtonElement.Element.Click();
+                Assert.That(checkBoxPage.FirstRadionButtonElement.Checked, Is.False);
+                checkBoxPage.SecondRadionButtonElement.Element.Click(); 
+            }
         }
 
         [Test]
         public void FindElementsAndFindElement()
         {
-            var webBrowser = BrowserFactory.Create();
-            var site = new Pages.SampleControlSite(webBrowser);
-            site.MainPage.Navigate();
-            var checkBoxPage = site.MainPage.ClickOnCheckBox();
+            using (var webBrowser = BrowserFactory.Create())
+            {
+                var site = new Pages.SampleControlSite(webBrowser);
+                site.MainPage.Navigate();
+                var checkBoxPage = site.MainPage.ClickOnCheckBox();
 
-            var checkbox21 = checkBoxPage.Checkbox2;
-            var checkbox22 = checkBoxPage.CheckboxDiv.FindElements<CheckBoxElement>(FindBy.TagName("input"))[1];
-            Assert.That(checkbox21.Checked, Is.EqualTo(true));
-            Assert.That(checkbox22.Checked, Is.EqualTo(true));
-            checkbox21.UnCheck();
-            Assert.That(checkbox22.Checked, Is.EqualTo(false));
+                var checkbox21 = checkBoxPage.Checkbox2;
+                var checkbox22 = checkBoxPage.CheckboxDiv.FindElements<CheckBoxElement>(FindBy.TagName("input"))[1];
+                Assert.That(checkbox21.Checked, Is.EqualTo(true));
+                Assert.That(checkbox22.Checked, Is.EqualTo(true));
+                checkbox21.UnCheck();
+                Assert.That(checkbox22.Checked, Is.EqualTo(false));
 
-            Thread.Sleep(2000);
-            webBrowser.Close();
+                Thread.Sleep(2000);
+            }
         }
 
         [Test]
         public void GotoCheckboxPageWithActionClick()
         {
-            var webBrowser = BrowserFactory.Create();
-            var site = new Pages.SampleControlSite(webBrowser);
-            site.MainPage.Navigate();
-            site.MainPage.CheckBox.Actions.Click();
+            using (var webBrowser = BrowserFactory.Create())
+            {
+                var site = new Pages.SampleControlSite(webBrowser);
+                site.MainPage.Navigate();
+                site.MainPage.CheckBox.Actions.Click();
 
-            var checkBoxPage = new CheckBoxPage(site.MainPage.WebBrowser);
+                var checkBoxPage = new CheckBoxPage(site.MainPage.WebBrowser);
 
-            Assert.IsTrue(checkBoxPage.CheckboxDiv.Displayed);
+                Assert.IsTrue(checkBoxPage.CheckboxDiv.Displayed);
+            }
         }
 
         [Test]
         public void GotoCheckboxPageWithJavascriptClick()
         {
-            var webBrowser = BrowserFactory.Create();
-            var site = new Pages.SampleControlSite(webBrowser);
-            site.MainPage.Navigate();
-            site.MainPage.CheckBox.Javascript.Click();
+            using (var webBrowser = BrowserFactory.Create())
+            {
+                var site = new Pages.SampleControlSite(webBrowser);
+                site.MainPage.Navigate();
+                site.MainPage.CheckBox.Javascript.Click();
 
-            var checkBoxPage = new CheckBoxPage(site.MainPage.WebBrowser);
+                var checkBoxPage = new CheckBoxPage(site.MainPage.WebBrowser);
 
-            Assert.IsTrue(checkBoxPage.CheckboxDiv.Displayed);
+                Assert.IsTrue(checkBoxPage.CheckboxDiv.Displayed);
+            }
         }
 
         [Test]
@@ -151,7 +159,7 @@ namespace SampleTests.SampleControlSite.Pages
         {
             using (var webBrowser = BrowserFactory.Create())
             {
-                var site = new SampleControlSite(webBrowser);
+                var site = new Pages.SampleControlSite(webBrowser);
 
                 var dragAndDropPage = site.DragAndDropPage;
 
@@ -161,6 +169,22 @@ namespace SampleTests.SampleControlSite.Pages
 
                 //todo draganddrop is not working here
                 //Assert.AreEqual("B", dragAndDropPage.RectangleA.Text);
+            }
+        }
+
+        [Test]
+        public void GetImmediateDescandant()
+        {
+            using (var webBrowser = BrowserFactory.Create())
+            {
+                var site = new Pages.SampleControlSite(webBrowser);
+
+                var mainPage = site.MainPage;
+
+                mainPage.Navigate();
+                var divs = mainPage.ImmediateDescandantDivs;
+
+                Assert.That(divs.Count, Is.EqualTo(3));
             }
         }
     }

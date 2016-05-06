@@ -12,7 +12,7 @@ namespace Asterix.Framework.WebUi.Browser
         public bool IsClosed { get; private set; }
 
         public WebBrowser(IWebDriver webDriver, ILogger logger)
-            : base(webDriver, logger, () => webDriver.FindElement(By.XPath("/*")))
+            : base(webDriver, logger, () => webDriver.FindElement(By.XPath("//*")))
         {
         }
 
