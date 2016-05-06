@@ -187,5 +187,22 @@ namespace SampleTests.SampleControlSite
                 Assert.That(divs.Count, Is.EqualTo(3));
             }
         }
+
+        [Test]
+        public void FindAbTestLinkByAttribute()
+        {
+            using (var webBrowser = BrowserFactory.Create())
+            {
+                var site = new Pages.SampleControlSite(webBrowser);
+
+                var mainPage = site.MainPage;
+
+                mainPage.Navigate();
+
+                var abTestLink = mainPage.ContentDiv.FindElements(FindBy.Attribute("href", "/abtest"));
+
+                Assert.That(abTestLink.Count, Is.EqualTo(1));
+            }
+        }
     }
 }

@@ -27,6 +27,8 @@ namespace SampleTests.SampleControlSite.Pages
             return new CheckBoxPage(WebBrowser);
         }
 
+        public IElement ContentDiv => WebBrowser.FindElement(FindBy.Id("content"));
+
         public IElement DrowpDown
         {
             get
