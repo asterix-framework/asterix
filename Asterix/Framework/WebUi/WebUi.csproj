@@ -82,6 +82,7 @@
     <Compile Include="Logging\IDatetTimeProvider.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\LoggerBase.cs" />
+    <Compile Include="PageObject\ControlBase.cs" />
     <Compile Include="PageObject\PageBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

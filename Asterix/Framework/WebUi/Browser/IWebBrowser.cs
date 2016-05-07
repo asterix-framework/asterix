@@ -15,8 +15,8 @@ namespace Asterix.Framework.WebUi.Browser
         void Navigate(string url);
         void Navigate(Uri uri);
         void Refresh();
-        void SwitchToFrame(string frameName);
-        void SwitchToMain();
+        IWebBrowser SwitchToFrame(string frameName);
+        IWebBrowser SwitchToDefaultContent();
         void Quit();
         void Close();
     }

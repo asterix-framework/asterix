@@ -204,5 +204,25 @@ namespace SampleTests.SampleControlSite
                 Assert.That(abTestLink.Count, Is.EqualTo(1));
             }
         }
+
+        [Test]
+        [Ignore("Currently switch to frame is not working")]
+        public void FindElementInFrame()
+        {
+            using (var webBrowser = BrowserFactory.Create())
+            {
+                var site = new Pages.SampleControlSite(webBrowser);
+
+                var framePage = site.FramePage;
+                framePage.Navigate();
+
+                var body = framePage.EditorFrame.Body;
+                Assert.That(body.Displayed, Is.EqualTo(true));
+
+                string fileText = framePage.FileButton.Text;
+
+                Assert.That(fileText, Is.EqualTo("File"));
+            }
+        }
     }
 }
