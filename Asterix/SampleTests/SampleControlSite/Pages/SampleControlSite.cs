@@ -17,12 +17,14 @@ namespace SampleTests.SampleControlSite.Pages
 
         public SampleControlSite(IWebBrowser webBrowser) : this(webBrowser, ServerAddress) { }
 
-        public MainPage MainPage { get { return new MainPage(_webBrowser); } }
+        public MainPage MainPage => new MainPage(_webBrowser);
 
-        public DropDownPage DropDownPage { get { return new DropDownPage(_webBrowser); } }
+        public DropDownPage DropDownPage => new DropDownPage(_webBrowser);
 
-        public CheckBoxPage CheckBoxPage { get { return new CheckBoxPage(_webBrowser); } }
+        public CheckBoxPage CheckBoxPage => new CheckBoxPage(_webBrowser);
 
-        public DragAndDropPage DragAndDropPage { get { return new DragAndDropPage(_webBrowser); } }
-}
+        public DragAndDropPage DragAndDropPage => new DragAndDropPage(_webBrowser);
+
+        public FramePage FramePage => new FramePage(_webBrowser);
+    }
 }

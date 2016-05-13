@@ -56,11 +56,12 @@ namespace Asterix.Framework.WebUi.Browser
             WebDriver.Navigate().Refresh();
         }
 
-        public void SwitchToFrame(string frameName)
+        public IWebBrowser SwitchToFrame(string frameName)
         {
             try
             {
                 WebDriver.SwitchTo().Frame(frameName);
+                return new WebBrowser(WebDriver, Logger);
             }
             catch (NoSuchFrameException exc)
             {
@@ -68,9 +69,10 @@ namespace Asterix.Framework.WebUi.Browser
             }
         }
 
-        public void SwitchToMain()
+        public IWebBrowser SwitchToDefaultContent()
         {
             WebDriver.SwitchTo().DefaultContent();
+            return new WebBrowser(WebDriver, Logger);
         }
 
         public string Html

@@ -2,14 +2,9 @@
 
 namespace Asterix.Framework.WebUi.PageObject
 {
-    public abstract class PageBase
+    public abstract class PageBase : ControlBase
     {
-        public Browser.IWebBrowser WebBrowser { get; private set; }
-
-        public PageBase(Browser.IWebBrowser webBrowser)
-        {
-            WebBrowser = webBrowser;
-        }
+        protected PageBase(Browser.IWebBrowser webBrowser) : base(webBrowser) { }
 
         protected abstract string PageUrl{ get; }
 
