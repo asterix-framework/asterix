@@ -44,12 +44,7 @@ namespace Asterix.Framework.CommonTests
             return () =>
             {
                 int compareResult = DateTime.Compare(DateTime.Now, endTime);
-                if (compareResult >= 0)
-                {
-                    return true;
-                }
-
-                return false;
+                return compareResult >= 0;
             };
         }
     }
