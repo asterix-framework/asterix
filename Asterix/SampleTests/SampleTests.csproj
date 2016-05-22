@@ -85,10 +85,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{d8b08707-fae8-4e40-80be-302c58c9cbbe}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Framework\TestContext\TestContext\TestContext.csproj">
       <Project>{FBCCF0C1-7946-43BE-9AB9-79C96CD7E3A4}</Project>
       <Name>TestContext</Name>
